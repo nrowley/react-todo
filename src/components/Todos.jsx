@@ -33,11 +33,11 @@ export default function Todos() {
   };
 
   return (
-    <div className="container-fluid my-auto">
-      <div className="d-flex justify-content-center h-100 flex-direction-column">
-        <h1>react-todos</h1>
+    <div className="container-fluid mx-auto ">
+      <div className="container d-flex justify-content-center ">
+        <h1 className="mb-5 mt-5">react-todos</h1>
       </div>
-      <div className="d-flex justify-content-center  mt-100">
+      <div className="d-flex justify-content-center">
         <form className="form-inline" onSubmit={handleSubmit(onSubmit)}>
           <input type="text" className="form-control mb-2 mr-sm-2" name="todo" placeholder="Todo" ref={register}></input>
           <button type="submit" className="btn btn-primary mb-2">
@@ -45,7 +45,7 @@ export default function Todos() {
           </button>
         </form>
       </div>
-      <div className="d-flex justify-content-center flex-direction-column">
+      <div className="d-flex justify-content-center flex-direction-column flex-wrap ">
         {todos.map((todo) => {
           return <Todo key={todo.id} todoText={todo.todoText} removeTodo={(id) => removeTodo(id)} id={todo.id} />;
         })}
