@@ -1,16 +1,18 @@
 import React from "react";
 
-export default function Todo({ todoText, removeFunc, id }) {
+export default function Todo({ todoText, removeTodo, id }) {
+  const handleClick = () => {
+    removeTodo(id);
+  };
+
   return (
     <div>
       <div className="card">
         <div className="card-body d-flex">
           <div className="card-title">{todoText}</div>
-          <form onSubmit={removeFunc(id)} inline="true">
-            <button className="btn btn-primary" type="submit">
-              remove
-            </button>
-          </form>
+          <button className="btn btn-primary" onClick={handleClick}>
+            remove
+          </button>
         </div>
       </div>
     </div>

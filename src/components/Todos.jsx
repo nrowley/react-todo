@@ -10,11 +10,13 @@ export default function Todos() {
   const { register, handleSubmit } = useForm();
   const [todos, setTodos] = useState([]);
   const [ids, setIds] = useState(0);
-  /*
+
   const removeTodo = (id) => {
-    setTodos(todos.filter((item) => item.id !== id));
+    console.log(`removing todo id ${id}`);
+    console.log(todos);
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
-*/
+
   const onSubmit = (data) => {
     setTodos([
       ...todos,
@@ -45,7 +47,7 @@ export default function Todos() {
       </div>
       <div className="d-flex justify-content-center flex-direction-column">
         {todos.map((todo) => {
-          return <Todo key={todo.id} todoText={todo.todoText} removeFunc={() => console.log("deleted")} id={todo.id} />;
+          return <Todo key={todo.id} todoText={todo.todoText} removeTodo={(id) => removeTodo(id)} id={todo.id} />;
         })}
       </div>
     </div>
